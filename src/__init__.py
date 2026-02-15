@@ -7,8 +7,6 @@ from src.shared.exercise_factory import register_exercises
 from src.services.permutacion_simple_service import PermutacionSimpleService
 from src.services.operaciones_conjuntos_service import OperacionesConjuntosService
 
-# ── Configuración de ejercicios ──
-# Tú defines toda la metadata, tus compañeros solo crean el servicio con execute()
 EXERCISES = [
     {
         "service": PermutacionSimpleService,

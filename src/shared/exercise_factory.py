@@ -175,6 +175,9 @@ def create_exercise_blueprint(config: Dict[str, Any]):
         try:
             result = service.execute(**kwargs)
             return jsonify(data_response(result))
+        except NotImplementedError as e:
+            msg = str(e).strip() or "Servicio no implementado"
+            return jsonify(*error_response(msg, 501))
         except (ValueError, TypeError) as e:
             return jsonify(*error_response(str(e)))
         except Exception as e:

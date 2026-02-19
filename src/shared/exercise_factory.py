@@ -135,7 +135,8 @@ def create_exercise_blueprint(config: Dict[str, Any]):
     @bp.route(f"/{route_name}/view", methods=["GET"])
     def get_view():
         """Retorna el código fuente del servicio + metadata."""
-        code = inspect.getsource(service_class)
+        module = inspect.getmodule(service_class)
+        code = inspect.getsource(module) if module else inspect.getsource(service_class)
         extra = dict(view_extra)
         if walkthrough_payload is not None:
             extra["walkthrough"] = walkthrough_payload

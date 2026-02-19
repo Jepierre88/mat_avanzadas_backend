@@ -63,7 +63,6 @@ EXERCISES = [
                 "Se lanzan dos dados distinguibles: uno azul y uno rojo. El espacio muestral es:\n"
                 "S = { (b,r) : b, r ∈ {1,…,6} }\n\n"
                 "Ejercicios\n"
-                "1. Determine el número de resultados que cumplen cada condición:\n"
                 "o Total de resultados posibles\n"
                 "o Resultados donde ambos dados muestran el mismo número, es decir, dobles.\n"
                 "o Resultados cuya suma es 4\n"

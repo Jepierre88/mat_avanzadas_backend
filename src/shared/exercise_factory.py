@@ -118,16 +118,28 @@ def create_exercise_blueprint(config: Dict[str, Any]):
 
         return value
 
+    # ── Walkthrough (opcional) ──
+    walkthrough_module = config.get("walkthrough")
+    walkthrough_payload = None
+    if walkthrough_module is not None:
+        wt_code = getattr(walkthrough_module, "CODE", None)
+        wt_steps = getattr(walkthrough_module, "STEPS", None)
+        if wt_code and wt_steps:
+            walkthrough_payload = {"code": wt_code, "steps": wt_steps}
+
     @bp.route(f"/{route_name}/view", methods=["GET"])
     def get_view():
         """Retorna el código fuente del servicio + metadata."""
         code = inspect.getsource(service_class)
+        extra = dict(view_extra)
+        if walkthrough_payload is not None:
+            extra["walkthrough"] = walkthrough_payload
         result = view_response(
             code=code,
             title=title,
             description=description,
             params=params,
-            **view_extra,
+            **extra,
         )
         return jsonify(result)
 

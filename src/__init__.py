@@ -7,6 +7,8 @@ from src.shared.exercise_factory import register_exercises
 from src.services.permutacion_simple_service import PermutacionSimpleService
 from src.services.operaciones_conjuntos_service import OperacionesConjuntosService
 from src.services.tecnicas_conteo_service import TecnicasConteoService
+from src.walkthroughs import permutacion_simple_walkthrough
+from src.walkthroughs import tecnicas_conteo_walkthrough
 
 EXERCISES = [
     {
@@ -17,6 +19,7 @@ EXERCISES = [
         "params": [
             {"name": "n", "type": "int", "description": "Cantidad de elementos a permutar"},
         ],
+        "walkthrough": permutacion_simple_walkthrough,
     },
     {
         "service": OperacionesConjuntosService,
@@ -57,6 +60,7 @@ EXERCISES = [
             "Generar el espacio muestral y verificar condiciones de conteo."
         ),
         "params": [],
+        "walkthrough": tecnicas_conteo_walkthrough,
         "view_extra": {
             "statement": (
                 "Contexto\n"

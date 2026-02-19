@@ -29,6 +29,9 @@ def permutacion_simple(n):
     }\
 """
 
+# Valores de prueba con los que se ilustra el tour
+TEST_PARAMS = {"n": 5}
+
 STEPS = [
     {
         "lines": [1],

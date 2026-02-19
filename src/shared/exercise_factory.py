@@ -124,8 +124,13 @@ def create_exercise_blueprint(config: Dict[str, Any]):
     if walkthrough_module is not None:
         wt_code = getattr(walkthrough_module, "CODE", None)
         wt_steps = getattr(walkthrough_module, "STEPS", None)
+        wt_test_params = getattr(walkthrough_module, "TEST_PARAMS", {})
         if wt_code and wt_steps:
-            walkthrough_payload = {"code": wt_code, "steps": wt_steps}
+            walkthrough_payload = {
+                "code": wt_code,
+                "steps": wt_steps,
+                "test_params": wt_test_params or {},
+            }
 
     @bp.route(f"/{route_name}/view", methods=["GET"])
     def get_view():

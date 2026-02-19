@@ -64,6 +64,10 @@ suma_par = [(b, r) for b, r in espacio if (b + r) % 2 == 0]\
 # ─────────────────────────────────────────────────────────────────
 #  PASOS del walkthrough  (las líneas son 1-indexed sobre CODE)
 # ─────────────────────────────────────────────────────────────────
+
+# No requiere parámetros del usuario (dados fijos 1-6)
+TEST_PARAMS = {}
+
 STEPS = [
     {
         "lines": [1],
